@@ -269,7 +269,7 @@
           y: {
             title: { display: true, text: "SPL (dB)" },
             min: 0,
-            max: 120,
+            max: 160,
             ticks: { stepSize: 20 },
             grid: { color: "#888" },
           },
