@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sound Distance Calculator</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="titlebar">
+      <span class="titlebar-label">Sound Distance Calculator</span>
+    </header>
+    <div class="panels">
+      <aside class="panel left">
+        <label class="field">
+          <span>Caliber</span>
+          <select id="caliber"></select>
+        </label>
+        <label class="field">
+          <span>Manufacturer</span>
+          <select id="manufacturer"></select>
+        </label>
+        <label class="field">
+          <span>Model</span>
+          <select id="model"></select>
+        </label>
+
+        <div class="specs" id="specs">
+          <div class="specs-heading">Specs</div>
+          <div class="spec-row"><span class="spec-label">Cartridge</span><span data-spec="cartridge">—</span></div>
+          <div class="spec-row"><span class="spec-label">Weight</span><span data-spec="weight">—</span></div>
+          <div class="spec-row"><span class="spec-label">Length</span><span data-spec="length">—</span></div>
+          <div class="spec-row"><span class="spec-label">Diameter</span><span data-spec="diameter">—</span></div>
+          <div class="spec-row"><span class="spec-label">Volume</span><span data-spec="volume">—</span></div>
+        </div>
+
+        <label class="field">
+          <span>Starting dB</span>
+          <input type="number" id="startingDb" step="0.1" />
+        </label>
+        <h3 class="rank-title">Ranked suppressors for selected caliber</h3>
+        <ul id="rankedList" class="ranked-list"></ul>
+      </aside>
+
+      <section class="panel center">
+        <div class="panel-caption">SPL by distance</div>
+        <div class="table-wrap">
+          <table id="splTable">
+            <thead>
+              <tr>
+                <th>Distance (yd)</th>
+                <th>Distance (m)</th>
+                <th>SPL (dB)</th>
+              </tr>
+            </thead>
+            <tbody id="splBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel right">
+        <div class="panel-caption">SPL vs distance</div>
+        <div class="chart-wrap">
+          <canvas id="splChart"></canvas>
+        </div>
+      </section>
+    </div>
+    <footer class="app-footer">
+      <div class="footer-credits">
+        <strong>Sources / credits:</strong>
+        Thunder Beast Arms Silencer Summit measurement data;
+        public advertised specifications from manufacturers / vendors;
+        independent YouTube measurements posted by Mrgunandgear (MrGunAndGear).
+      </div>
+      <div class="footer-disclaimer">
+        These figures are compiled estimates from different public sources for comparison only.
+        They are not lab-certified hearing-safety ratings. Measurement setups, hosts, ammo, and
+        conditions differ; do not treat displayed SPL as a guarantee of hearing protection.
+      </div>
+    </footer>
+  </div>
+  <script src="js/suppressors-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
