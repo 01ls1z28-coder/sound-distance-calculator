@@ -630,9 +630,9 @@ tbody tr.spl-gray {
   }
 
   .chart-wrap {
-    height: 480px;
-    max-height: 480px;
-    min-height: 400px;
+    height: 960px;
+    max-height: 960px;
+    min-height: 800px;
   }
 }
 
@@ -685,9 +685,9 @@ tbody tr.spl-gray {
   }
 
   .chart-wrap {
-    height: 400px;
-    max-height: 400px;
-    min-height: 360px;
+    height: 800px;
+    max-height: 800px;
+    min-height: 720px;
   }
 
   .ranked-list {
@@ -713,8 +713,8 @@ tbody tr.spl-gray {
   }
 
   .chart-wrap {
-    height: 360px;
-    max-height: 360px;
-    min-height: 320px;
+    height: 720px;
+    max-height: 720px;
+    min-height: 640px;
   }
 }
