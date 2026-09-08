@@ -73,6 +73,25 @@
 
       <section class="panel right">
         <div class="panel-caption">SPL vs distance</div>
+        <div class="distance-control">
+          <div class="distance-control-header">
+            <span class="distance-control-label">Max distance</span>
+            <span class="distance-control-value" id="maxDistanceLabel">1000 m</span>
+          </div>
+          <input
+            type="range"
+            id="maxDistance"
+            min="1"
+            max="1000"
+            step="1"
+            value="1000"
+            aria-label="Maximum distance in meters"
+          />
+          <div class="distance-control-meta">
+            <span>1 m</span>
+            <span>1000 m</span>
+          </div>
+        </div>
         <div class="chart-wrap">
           <canvas id="splChart"></canvas>
         </div>
@@ -84,6 +103,14 @@
         Thunder Beast Arms Silencer Summit measurement data;
         public advertised specifications from manufacturers / vendors;
         independent YouTube measurements posted by Mrgunandgear (MrGunAndGear).
+      </div>
+      <div class="footer-osha">
+        <strong>OSHA reference (29 CFR 1910.95):</strong>
+        Chart lines show the 85 dBA action level (1910.95(c)(1)–(c)(2)) and selected
+        Table G-16 permissible noise exposures (dBA, slow response): 90 (8 h), 95 (4 h),
+        100 (2 h), 105 (1 h), and 115 (¼ h or less). These are workplace time-weighted /
+        continuous exposure criteria for comparison against the calculator’s inverse-square
+        SPL estimate — not a hearing-safety certification.
       </div>
       <div class="footer-disclaimer">
         These figures are compiled estimates from different public sources for comparison only.
