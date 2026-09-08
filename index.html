@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050607" />
   <title>Sound Distance Calculator</title>
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/chart.umd.min.js"></script>
@@ -10,7 +11,17 @@
 <body>
   <div class="app">
     <header class="titlebar">
-      <span class="titlebar-label">Sound Distance Calculator</span>
+      <div class="titlebar-brand">
+        <div class="titlebar-mark" aria-hidden="true">SD</div>
+        <div class="titlebar-text">
+          <span class="titlebar-label">Sound Distance Calculator</span>
+          <span class="titlebar-sub">Precision SPL · Inverse-square</span>
+        </div>
+      </div>
+      <div class="titlebar-credit">
+        <span class="titlebar-credit-label">Created by</span>
+        <span class="titlebar-credit-name"><em>Jorge Guerra</em></span>
+      </div>
     </header>
     <div class="panels">
       <aside class="panel left">

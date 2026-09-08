@@ -24,6 +24,25 @@
     specs: document.getElementById("specs"),
   };
 
+
+  /** Subtle Chart.js watermark — visual only; does not affect SPL math. */
+  const jorgeWatermarkPlugin = {
+    id: "jorgeWatermark",
+    afterDraw(chartInstance) {
+      const { ctx, chartArea } = chartInstance;
+      if (!chartArea) return;
+      const text = "Jorge Guerra";
+      ctx.save();
+      ctx.globalAlpha = 0.14;
+      ctx.fillStyle = "#c8ff4a";
+      ctx.font = "600 15px \"Segoe UI\", system-ui, sans-serif";
+      ctx.textAlign = "right";
+      ctx.textBaseline = "bottom";
+      ctx.fillText(text, chartArea.right - 8, chartArea.bottom - 8);
+      ctx.restore();
+    },
+  };
+
   function uniqueSorted(values) {
     return Array.from(new Set(values)).sort((a, b) =>
       String(a).localeCompare(String(b), undefined, { sensitivity: "base" })
@@ -231,6 +250,9 @@
       chart.update();
       return;
     }
+    const gridColor = "rgba(154, 166, 184, 0.14)";
+    const tickColor = "#9aa6b8";
+    const titleColor = "#f4f7fb";
     chart = new Chart(ctx, {
       type: "line",
       data: {
@@ -238,11 +260,12 @@
           {
             label: "SPL (dB)",
             data: points,
-            borderColor: "rgba(100, 180, 230, 1)",
-            backgroundColor: "rgba(100, 180, 230, 0.15)",
+            borderColor: "rgba(76, 201, 240, 0.95)",
+            backgroundColor: "rgba(76, 201, 240, 0.12)",
             borderWidth: 2,
             pointRadius: 0,
             tension: 0.15,
+            fill: true,
           },
         ],
       },
@@ -255,26 +278,39 @@
           title: {
             display: true,
             text: "SPL (dB) vs Distance (yd)",
+            color: titleColor,
+            font: { size: 13, weight: "600" },
           },
         },
         scales: {
           x: {
             type: "linear",
-            title: { display: true, text: "Distance (Yards)" },
+            title: {
+              display: true,
+              text: "Distance (Yards)",
+              color: tickColor,
+            },
             min: 0,
             max: 1000,
-            ticks: { stepSize: 200 },
-            grid: { color: "#888" },
+            ticks: { stepSize: 200, color: tickColor },
+            grid: { color: gridColor },
+            border: { color: "rgba(180, 200, 230, 0.2)" },
           },
           y: {
-            title: { display: true, text: "SPL (dB)" },
+            title: {
+              display: true,
+              text: "SPL (dB)",
+              color: tickColor,
+            },
             min: 0,
             max: 160,
-            ticks: { stepSize: 20 },
-            grid: { color: "#888" },
+            ticks: { stepSize: 20, color: tickColor },
+            grid: { color: gridColor },
+            border: { color: "rgba(180, 200, 230, 0.2)" },
           },
         },
       },
+      plugins: [jorgeWatermarkPlugin],
     });
   }
 
