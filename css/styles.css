@@ -521,13 +521,14 @@ tbody tr.spl-gray {
 
   .panel.center {
     width: calc(42% - 6px);
-    min-height: 360px;
+    min-height: 280px;
   }
 
   .panel.right {
     width: calc(58% - 6px);
     min-width: 0;
-    min-height: 360px;
+    min-height: 280px;
+    max-height: 320px;
   }
 }
 
@@ -568,13 +569,14 @@ tbody tr.spl-gray {
   }
 
   .panel.center {
-    min-height: 320px;
-    max-height: 420px;
+    min-height: 220px;
+    max-height: 280px;
   }
 
   .panel.right {
-    min-height: 300px;
-    height: 360px;
+    min-height: 200px;
+    height: 220px;
+    max-height: 240px;
   }
 
   .ranked-list {
@@ -600,7 +602,8 @@ tbody tr.spl-gray {
   }
 
   .panel.right {
-    height: 300px;
-    min-height: 260px;
+    height: 180px;
+    min-height: 160px;
+    max-height: 200px;
   }
 }
