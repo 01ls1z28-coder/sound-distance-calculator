@@ -219,6 +219,7 @@ html, body {
   flex: 1;
   min-width: 280px;
   padding: 0;
+  align-self: flex-start; /* height follows caption + fixed chart, not full viewport */
 }
 
 .panel-caption {
@@ -448,8 +449,10 @@ tbody tr.spl-gray {
 }
 
 .chart-wrap {
-  flex: 1;
-  min-height: 0;
+  flex: 0 0 auto;
+  height: 260px;
+  max-height: 260px;
+  min-height: 220px;
   padding: 12px 14px 14px;
   display: flex;
   background:
@@ -521,13 +524,20 @@ tbody tr.spl-gray {
 
   .panel.center {
     width: calc(42% - 6px);
-    min-height: 360px;
+    min-height: 240px;
+    max-height: 320px;
   }
 
   .panel.right {
     width: calc(58% - 6px);
     min-width: 0;
-    min-height: 360px;
+    align-self: flex-start;
+  }
+
+  .chart-wrap {
+    height: 240px;
+    max-height: 240px;
+    min-height: 200px;
   }
 }
 
@@ -568,13 +578,21 @@ tbody tr.spl-gray {
   }
 
   .panel.center {
-    min-height: 320px;
-    max-height: 420px;
+    min-height: 200px;
+    max-height: 280px;
   }
 
   .panel.right {
-    min-height: 300px;
-    height: 360px;
+    align-self: stretch;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+
+  .chart-wrap {
+    height: 200px;
+    max-height: 200px;
+    min-height: 180px;
   }
 
   .ranked-list {
@@ -599,8 +617,9 @@ tbody tr.spl-gray {
     letter-spacing: 0.04em;
   }
 
-  .panel.right {
-    height: 300px;
-    min-height: 260px;
+  .chart-wrap {
+    height: 180px;
+    max-height: 180px;
+    min-height: 160px;
   }
 }
