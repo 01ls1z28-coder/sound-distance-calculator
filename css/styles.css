@@ -450,8 +450,8 @@ tbody tr.spl-gray {
 
 .chart-wrap {
   flex: 0 0 auto;
-  height: 520px;
-  max-height: 520px;
+  height: 800px;
+  max-height: 800px;
   min-height: 220px;
   padding: 12px 14px 14px;
   display: flex;
