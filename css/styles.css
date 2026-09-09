@@ -219,7 +219,9 @@ html, body {
   flex: 1;
   min-width: 280px;
   padding: 0;
-  align-self: flex-start; /* height follows caption + fixed chart, not full viewport */
+  align-self: flex-start; /* height follows caption + chart + notes */
+  display: flex;
+  flex-direction: column;
 }
 
 .panel-caption {
@@ -465,13 +467,13 @@ tbody tr.spl-gray {
   max-height: 100%;
 }
 
-.app-footer {
+.chart-notes {
   flex-shrink: 0;
   background:
     var(--carbon-fine),
     linear-gradient(180deg, #0c1016, #07090c);
   color: var(--text-dim);
-  padding: 10px 16px 12px;
+  padding: 12px 14px 14px;
   border-top: 1px solid var(--panel-border);
   font-size: 11px;
   line-height: 1.45;
@@ -489,7 +491,7 @@ tbody tr.spl-gray {
 
 .footer-disclaimer {
   color: var(--text-dim);
-  max-width: 1100px;
+  max-width: none;
 }
 
 /* Custom scrollbars (WebKit) */
@@ -597,7 +599,7 @@ tbody tr.spl-gray {
   margin-top: 6px;
   margin-bottom: 6px;
   color: var(--text-muted);
-  max-width: 1100px;
+  max-width: none;
 }
 
 .footer-osha strong {
@@ -695,7 +697,7 @@ tbody tr.spl-gray {
     flex: none;
   }
 
-  .app-footer {
+  .chart-notes {
     padding: 10px 12px 14px;
   }
 }
