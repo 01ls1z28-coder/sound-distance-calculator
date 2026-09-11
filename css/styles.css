@@ -40,6 +40,21 @@
   --mono: ui-monospace, "Cascadia Code", Consolas, "Courier New", monospace;
   --sans: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px rgba(76, 201, 240, 0.45);
+  /* Phase 13/14 — classic brass / champagne chrome (exact VB token names) */
+  --brass: rgba(215, 196, 160, 0.42);
+  --brass-strong: rgba(240, 226, 196, 0.22);
+  --brass-inset: rgba(106, 87, 56, 0.35);
+  --brass-text: #e8d7b0;
+  --brass-face:
+    linear-gradient(145deg, rgba(240, 226, 196, 0.12), transparent 38%),
+    linear-gradient(165deg, rgba(255, 255, 255, 0.04) 0%, transparent 45%),
+    var(--carbon-fine),
+    var(--panel);
+  --brass-shadow:
+    inset 0 0 0 1px var(--brass-strong),
+    inset 0 0 0 3px var(--brass-inset),
+    inset 0 0 28px rgba(0, 0, 0, 0.35),
+    0 12px 36px rgba(0, 0, 0, 0.45);
 }
 
 html, body {
@@ -72,12 +87,9 @@ html, body {
   gap: 12px;
   flex-shrink: 0;
   padding: 12px 16px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 55%),
-    var(--carbon-fine),
-    var(--surface);
-  border-bottom: 1px solid var(--panel-border-strong);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  background: var(--brass-face);
+  border-bottom: 1px solid var(--brass);
+  box-shadow: var(--brass-shadow);
 }
 
 .titlebar-brand {
@@ -103,11 +115,12 @@ html, body {
     radial-gradient(circle at 30% 26%, #6b778c, #10151d 68%),
     var(--carbon-fine),
     #0c1016;
-  border: 1.5px solid rgba(200, 255, 74, 0.45);
+  border: 1.5px solid var(--brass-text);
   box-shadow:
-    0 0 0 2px rgba(200, 255, 74, 0.08),
-    0 0 16px rgba(76, 201, 240, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    0 0 0 3px rgba(215, 196, 160, 0.14),
+    0 0 16px rgba(200, 255, 74, 0.10),
+    inset 0 0 0 1px var(--brass-strong),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 .titlebar-text {
@@ -134,7 +147,8 @@ html, body {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-dim);
+  color: var(--brass-text);
+  opacity: 0.85;
 }
 
 .titlebar-credit {
@@ -151,7 +165,8 @@ html, body {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-dim);
+  color: var(--brass-text);
+  opacity: 0.75;
 }
 
 .titlebar-credit-name {
@@ -181,26 +196,42 @@ html, body {
   min-height: 0;
   overflow: hidden;
   position: relative;
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.045) 0%, transparent 40%),
-    var(--carbon-fine),
-    linear-gradient(180deg, rgba(18, 24, 34, 0.96), rgba(10, 13, 18, 0.98)),
-    var(--panel);
-  border: 1px solid var(--panel-border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-card);
+  background: var(--brass-face);
+  border: 1px solid var(--brass);
+  border-radius: 12px;
+  box-shadow: var(--brass-shadow);
 }
 
 .panel::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 12px;
-  right: 12px;
+  left: 14px;
+  right: 14px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  background: linear-gradient(90deg, transparent, rgba(240, 226, 196, 0.28), transparent);
   pointer-events: none;
   z-index: 1;
+}
+
+/* Phase 14 — tasteful brass corner ticks (instrument cluster) */
+.panel::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0.42;
+  z-index: 1;
+  background:
+    linear-gradient(var(--brass-text), var(--brass-text)) top left / 11px 1px no-repeat,
+    linear-gradient(var(--brass-text), var(--brass-text)) top left / 1px 11px no-repeat,
+    linear-gradient(var(--brass-text), var(--brass-text)) top right / 11px 1px no-repeat,
+    linear-gradient(var(--brass-text), var(--brass-text)) top right / 1px 11px no-repeat,
+    linear-gradient(var(--brass-text), var(--brass-text)) bottom left / 11px 1px no-repeat,
+    linear-gradient(var(--brass-text), var(--brass-text)) bottom left / 1px 11px no-repeat,
+    linear-gradient(var(--brass-text), var(--brass-text)) bottom right / 11px 1px no-repeat,
+    linear-gradient(var(--brass-text), var(--brass-text)) bottom right / 1px 11px no-repeat;
 }
 
 .panel.left {
@@ -234,9 +265,11 @@ html, body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--text-muted);
+  color: var(--brass-text);
   background: rgba(8, 10, 14, 0.55);
-  border-bottom: 1px solid var(--panel-border);
+  border-bottom: 1px solid var(--brass);
+  position: relative;
+  z-index: 2;
 }
 
 .panel-caption::after {
@@ -251,49 +284,64 @@ html, body {
   flex-direction: column;
   gap: 4px;
   font-size: 12px;
+  position: relative;
+  z-index: 2;
 }
 
 .field span {
   font-weight: 600;
-  color: var(--text-dim);
+  color: var(--brass-text);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  opacity: 0.92;
 }
 
 .field select,
 .field input[type="number"] {
   width: 100%;
   padding: 8px 10px;
-  border: 1px solid var(--input-border);
+  border: 1px solid var(--brass);
   border-radius: var(--radius-sm);
-  background: var(--input-bg);
+  background:
+    linear-gradient(180deg, rgba(240, 226, 196, 0.04), transparent 40%),
+    var(--input-bg);
   font-size: 13px;
   color: var(--text);
-  transition: border-color 0.15s, box-shadow 0.15s;
+  box-shadow: inset 0 0 0 1px var(--brass-inset);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
   appearance: none;
   -webkit-appearance: none;
 }
 
 .field select {
   background-image:
-    linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
-    linear-gradient(135deg, var(--text-muted) 50%, transparent 50%),
+    linear-gradient(45deg, transparent 50%, var(--brass-text) 50%),
+    linear-gradient(135deg, var(--brass-text) 50%, transparent 50%),
+    linear-gradient(180deg, rgba(240, 226, 196, 0.04), transparent 40%),
     var(--input-bg);
   background-position:
     calc(100% - 14px) calc(50% - 2px),
     calc(100% - 9px) calc(50% - 2px),
+    0 0,
     0 0;
-  background-size: 5px 5px, 5px 5px, auto;
+  background-size: 5px 5px, 5px 5px, auto, auto;
   background-repeat: no-repeat;
   padding-right: 28px;
+}
+
+.field select:hover,
+.field input[type="number"]:hover {
+  border-color: rgba(240, 226, 196, 0.55);
 }
 
 .field select:focus,
 .field input[type="number"]:focus {
   outline: none;
-  border-color: rgba(76, 201, 240, 0.55);
-  box-shadow: var(--focus-ring);
+  border-color: var(--brass-text);
+  box-shadow:
+    0 0 0 2px var(--bg),
+    0 0 0 4px rgba(215, 196, 160, 0.35);
 }
 
 .field select option {
@@ -303,11 +351,14 @@ html, body {
 
 .specs {
   background: rgba(4, 6, 9, 0.55);
-  border: 1px solid var(--panel-border);
+  border: 1px solid var(--brass);
   border-radius: var(--radius-sm);
   padding: 10px 12px;
   font-size: 12px;
   line-height: 1.4;
+  box-shadow: inset 0 0 0 1px var(--brass-inset);
+  position: relative;
+  z-index: 2;
 }
 
 .specs-heading {
@@ -315,10 +366,10 @@ html, body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-muted);
+  color: var(--brass-text);
   margin-bottom: 8px;
   padding-bottom: 6px;
-  border-bottom: 1px solid var(--panel-border);
+  border-bottom: 1px solid var(--brass);
 }
 
 .spec-row {
@@ -346,8 +397,10 @@ html, body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-muted);
+  color: var(--brass-text);
   margin-top: 2px;
+  position: relative;
+  z-index: 2;
 }
 
 .ranked-list {
@@ -356,11 +409,15 @@ html, body {
   min-height: 120px;
   overflow-y: auto;
   background: rgba(4, 6, 9, 0.55);
-  border: 1px solid var(--panel-border);
+  border: 1px solid var(--brass);
   border-radius: var(--radius-sm);
   font-size: 12px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
+  box-shadow:
+    inset 0 0 0 1px var(--brass-inset),
+    inset 0 1px 2px rgba(0, 0, 0, 0.35);
   -webkit-overflow-scrolling: touch;
+  position: relative;
+  z-index: 2;
 }
 
 .ranked-list li {
@@ -394,6 +451,8 @@ html, body {
   overflow: auto;
   min-height: 0;
   -webkit-overflow-scrolling: touch;
+  position: relative;
+  z-index: 2;
 }
 
 table {
@@ -408,7 +467,7 @@ thead th {
   position: sticky;
   top: 0;
   background: #12171f;
-  border-bottom: 1px solid var(--panel-border-strong);
+  border-bottom: 1px solid var(--brass);
   padding: 8px 12px;
   text-align: left;
   font-weight: 700;
@@ -416,7 +475,7 @@ thead th {
   font-family: var(--sans);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--text-muted);
+  color: var(--brass-text);
   z-index: 1;
 }
 
@@ -457,6 +516,8 @@ tbody tr.spl-gray {
   min-height: 220px;
   padding: 12px 14px 14px;
   display: flex;
+  position: relative;
+  z-index: 2;
   background:
     radial-gradient(ellipse at 50% 0%, rgba(76, 201, 240, 0.04), transparent 55%);
 }
@@ -474,9 +535,11 @@ tbody tr.spl-gray {
     linear-gradient(180deg, #0c1016, #07090c);
   color: var(--text-dim);
   padding: 12px 14px 14px;
-  border-top: 1px solid var(--panel-border);
+  border-top: 1px solid var(--brass);
   font-size: 11px;
   line-height: 1.45;
+  position: relative;
+  z-index: 2;
 }
 
 .footer-credits {
@@ -520,8 +583,10 @@ tbody tr.spl-gray {
   flex-direction: column;
   gap: 6px;
   padding: 10px 12px 12px;
-  border-bottom: 1px solid var(--panel-border);
+  border-bottom: 1px solid var(--brass);
   background: rgba(8, 10, 14, 0.45);
+  position: relative;
+  z-index: 2;
 }
 
 .distance-control-header {
@@ -536,7 +601,7 @@ tbody tr.spl-gray {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-muted);
+  color: var(--brass-text);
 }
 
 .distance-control-value {
@@ -653,7 +718,7 @@ tbody tr.spl-gray {
     align-items: flex-start;
     text-align: left;
     padding-top: 4px;
-    border-top: 1px solid var(--panel-border);
+    border-top: 1px solid var(--brass);
   }
 
   .panels {

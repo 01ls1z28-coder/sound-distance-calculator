@@ -1,0 +1,35 @@
+Sound Distance Calculator — verification notes
+==============================================
+
+FAMILY BRASS — SDC brass chrome (2026-09-11 CT)
+-----------------------------------------------
+CSS/theme only. Ports VelocityBench Phase 13/14 `--brass*` tokens so SDC
+titlebar/panels/inputs read as the same instrument-cluster family as VB + hub.
+
+Applied (exact VB token names):
+  --brass, --brass-strong, --brass-inset, --brass-text,
+  --brass-face, --brass-shadow  (+ existing --carbon-fine / --panel for face stack)
+
+Chrome surfaces:
+  - .titlebar: brass face + bottom bezel + shadow
+  - .titlebar-mark: brass-text ring (VB logo-mark language)
+  - .titlebar-sub / credit label: brass-text accents
+  - .panel: brass face/border/shadow, top highlight (::before),
+    Phase 14 corner ticks (::after)
+  - Inputs/selects: brass bezel + inset; brass focus ring
+  - Specs / ranked list / panel captions / distance control / chart-notes /
+    table header: brass borders + label accents
+  - Jorge Guerra credit <em> stays lime (high-contrast identity)
+  - Distance slider value/thumb keep cyan/lime contrast
+
+Intentional skips:
+  - SPL table band colors (red/yellow/green/gray) — functional readability
+  - Chart.js canvas styling / OSHA line math — not chrome
+  - Product copy, marks, credits, OSHA/disclaimer, sources unchanged
+  - No HTML hooks required; no analytics; no JS/data changes
+
+Verify:
+  1. Open index.html locally
+  2. Side-by-side with VB tool cards / hub — champagne bezel language matches
+  3. Corner ticks light on panels; selects readable; lime credit name intact
+  4. Mobile: stacked panels, no horizontal overflow from ticks
