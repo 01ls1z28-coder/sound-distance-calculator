@@ -140,6 +140,10 @@ html, body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+
+  margin: 0;
+
+  display: block;
 }
 
 .titlebar-sub {

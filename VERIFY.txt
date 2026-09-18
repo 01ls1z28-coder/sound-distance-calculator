@@ -1,3 +1,20 @@
+SEO / indexing (2026-09-18 CT)
+==============================
+Branch: review/sdc-seo
+Base: live main @ hub-chrome tip
+
+Static: unique title + meta description + OG/Twitter + canonical
+  https://01ls1z28-coder.github.io/sound-distance-calculator/
+robots.txt Allow + sitemap.xml; titlebar-label → semantic <h1> (margin:0).
+Disclaimers / OSHA / sources / non-affiliation unchanged. No JS/data/deploy.
+
+VERIFY
+  1. View-source: title/description/canonical/OG/Twitter present; one H1
+  2. /robots.txt + /sitemap.xml resolve after Pages publish
+  3. Layout chrome unchanged; no chart math change
+
+Intentional skips: deploy; tracking; fleet/data retune.
+
 Sound Distance Calculator — verification notes
 ==============================================
 
