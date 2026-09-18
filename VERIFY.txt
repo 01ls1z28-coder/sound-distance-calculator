@@ -33,3 +33,5 @@ Verify:
   2. Side-by-side with VB tool cards / hub — champagne bezel language matches
   3. Corner ticks light on panels; selects readable; lime credit name intact
   4. Mobile: stacked panels, no horizontal overflow from ticks
+
+Hub chrome 2026-09-18 CT: css/vb-chrome.css + nav on index (Hub=velocitybench.com, peers absolute).
